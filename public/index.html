@@ -18,26 +18,27 @@
     <title>Bankist</title>
   </head>
   <body
-    class="grid h-screen place-items-center bg-[#f3f3f3] px-4 font-['Poppins'] font-medium text-[#444] md:p-8"
+    class="md- grid h-screen place-items-center bg-[#f3f3f3] p-4 font-['Poppins'] font-medium text-[#444] md:block md:p-6"
   >
     <!-- Mobile header -->
-    <header class="flex flex-col items-center justify-center text-2xl md:hidden">
+    <header class="flex flex-col items-center justify-between text-2xl md:hidden">
       <img src="/src/img/logo.png" alt="Logo" class="mb-10 h-20 w-20" />
       <p class="mb-6">Log in to get started</p>
       <form class="flex flex-col justify-center gap-y-2.5 font-light">
         <input type="text" placeholder="user" class="input-login" />
-        <input type="password" placeholder="PIN" class="input-login" />
+        <input type="password" placeholder="PIN" maxlength="4" class="input-login" />
         <button class="login-btn">&rarr;</button>
       </form>
     </header>
 
     <!-- Desktop header -->
-    <header class="hidden">
-      <p>Log in to get started</p>
-      <img src="/src/img/logo.png" alt="Logo" />
-      <form class="font-light">
+    <header class="hidden items-center justify-between md:flex">
+      <p class="text-lg lg:text-xl xl:text-2xl">Log in to get started</p>
+      <img src="/src/img/logo.png" alt="Logo" class="h-12 w-12 lg:h-14 lg:w-14 xl:h-16 xl:w-16" />
+      <form class="flex items-center gap-x-2 font-light lg:gap-x-2.5">
         <input type="text" placeholder="user" class="input-login" />
-        <input type="password" placeholder="PIN" class="input-login" />
+        <input type="password" placeholder="PIN" maxlength="4" class="input-login" />
+        <button class="login-btn">&rarr;</button>
       </form>
     </header>
     <main>

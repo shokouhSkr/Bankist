@@ -4,10 +4,10 @@
 
 @layer components {
   .input-login {
-    @apply w-36 rounded-full border border-[#fff] py-1.5 text-center text-base font-normal focus:border-[#ccc] focus:outline-none;
+    @apply w-36 rounded-full border border-[#fff] py-1.5 text-center text-base font-normal focus:border-[#ccc] focus:outline-none md:w-[90px] md:text-sm lg:w-[110px] lg:text-base xl:w-[130px] xl:text-lg;
   }
 
   .login-btn {
-    @apply text-3xl transition-all duration-300 hover:text-[#777];
+    @apply text-3xl transition-all duration-300 hover:text-[#777] md:text-2xl md:font-bold xl:text-3xl;
   }
 }
