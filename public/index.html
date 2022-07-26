@@ -4,8 +4,45 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/src/img/icon.png" type="image/x-icon" />
+
     <link rel="stylesheet" href="./build/tailwind.css" />
-    <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Bankist</title>
   </head>
-  <body></body>
+  <body
+    class="grid h-screen place-items-center bg-[#f3f3f3] px-4 font-['Poppins'] font-medium text-[#444] md:p-8"
+  >
+    <!-- Mobile header -->
+    <header class="flex flex-col items-center justify-center text-2xl md:hidden">
+      <img src="/src/img/logo.png" alt="Logo" class="mb-10 h-20 w-20" />
+      <p class="mb-6">Log in to get started</p>
+      <form class="flex flex-col justify-center gap-y-2.5 font-light">
+        <input type="text" placeholder="user" class="input-login" />
+        <input type="password" placeholder="PIN" class="input-login" />
+        <button class="login-btn">&rarr;</button>
+      </form>
+    </header>
+
+    <!-- Desktop header -->
+    <header class="hidden">
+      <p>Log in to get started</p>
+      <img src="/src/img/logo.png" alt="Logo" />
+      <form class="font-light">
+        <input type="text" placeholder="user" class="input-login" />
+        <input type="password" placeholder="PIN" class="input-login" />
+      </form>
+    </header>
+    <main>
+      <div></div>
+      <section></section>
+    </main>
+  </body>
 </html>

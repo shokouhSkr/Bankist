@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .input-login {
+    @apply w-36 rounded-full border border-[#fff] py-1.5 text-center text-base font-normal focus:border-[#ccc] focus:outline-none;
+  }
+
+  .login-btn {
+    @apply text-3xl transition-all duration-300 hover:text-[#777];
+  }
+}

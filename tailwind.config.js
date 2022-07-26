@@ -8,8 +8,8 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        sans: ["Vazir"],
-        // Nunito: ["Nunito", "'sans-serif'"],
+        // sans: ["Vazir"],
+        Poppins: ["Poppins", "sans - serif"],
       },
       screens: {
         "2xs": "375px",
