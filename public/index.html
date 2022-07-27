@@ -19,7 +19,7 @@
   </head>
   <!--!!!!!!!!!!!!!!dont forget place-items-center -->
   <body
-    class="container grid h-screen w-full max-w-screen-2xl bg-[#f3f3f3] p-4 font-['Poppins'] font-medium text-[#444] md:block md:p-6"
+    class="container grid h-screen max-w-screen-2xl bg-[#f3f3f3] p-4 font-['Poppins'] font-medium text-[#444] md:block md:p-6"
   >
     <!-- Mobile header  !!!!!!!!!!!!!!!!change hidden to flex-->
     <header class="hidden flex-col items-center justify-between text-2xl md:hidden">
@@ -35,7 +35,7 @@
     <!-- Desktop header -->
     <header class="mb-10 hidden items-center justify-between md:flex">
       <p class="text-lg lg:text-xl xl:text-2xl">Log in to get started</p>
-      <img src="/src/img/logo.png" alt="Logo" class="img-size" />
+      <img src="/src/img/logo.png" alt="Logo" class="logo-size" />
       <form class="flex items-center gap-x-2 font-light lg:gap-x-2.5">
         <input type="text" placeholder="user" class="input-login" />
         <input type="password" placeholder="PIN" maxlength="4" class="input-login" />
@@ -43,8 +43,9 @@
       </form>
     </header>
 
-    <main class="bg-yellow-200 md:mx-auto md:max-w-screen-lg">
-      <div class="mb-4 flex flex-col bg-blue-100 md:flex-row md:justify-between">
+    <main class="mx-auto md:max-w-screen-lg">
+      <!-- BALANCE -->
+      <div class="balance">
         <div>
           <p class="text-lg">Current balance</p>
           <p class="text-xs">As of <span>05/03/2037</span></p>
@@ -53,6 +54,56 @@
           <p class="text-right text-2xl">250000€</p>
         </div>
       </div>
+
+      <!-- OPERATION: TRANSFERS -->
+      <section class="section-operations">
+        <div class="flex flex-col gap-y-4">
+          <!-- TRANSFER MONEY -->
+          <form class="form-operation from-[#ffb003] to-[#ffcb03]">
+            <p class="mb-1 text-lg font-semibold">Transfer money</p>
+            <div class="flex items-center justify-between md:flex-col-reverse">
+              <label class="text-center text-xs">Transfer to</label>
+              <input type="text" class="input-operation" />
+            </div>
+            <div class="flex items-center justify-between">
+              <label class="text-center text-xs">Amount</label>
+              <input type="number" class="input-operation" />
+            </div>
+            <div class="text-right text-sm">
+              <button class="w-1/5 rounded-md bg-white py-0.5">&rarr;</button>
+            </div>
+          </form>
+
+          <!-- REQUEST LOAN -->
+          <form class="form-operation from-[#9be15d] to-[#39b385]">
+            <p class="mb-1 text-lg font-semibold">Request loan</p>
+            <div class="flex items-center justify-between">
+              <label class="text-center text-xs">Amount</label>
+              <input type="number" class="input-operation" />
+            </div>
+            <div class="text-right text-sm">
+              <button class="w-1/5 rounded-md bg-white py-0.5">&rarr;</button>
+            </div>
+          </form>
+
+          <!-- CLOSE ACCONUT -->
+          <form class="form-operation from-[#e52a5a] to-[#ff585f]">
+            <p class="mb-1 text-lg font-semibold">Close account</p>
+            <div class="flex items-center justify-between md:flex-col-reverse">
+              <label class="text-center text-xs">Confirm user</label>
+              <input type="text" class="input-operation" />
+            </div>
+            <div class="flex items-center justify-between">
+              <label class="text-center text-xs">Confirm PIN</label>
+              <input type="number" class="input-operation" />
+            </div>
+            <div class="text-right text-sm">
+              <button class="w-1/5 rounded-md bg-white py-0.5">&rarr;</button>
+            </div>
+          </form>
+        </div>
+        <p>detail</p>
+      </section>
     </main>
   </body>
 </html>

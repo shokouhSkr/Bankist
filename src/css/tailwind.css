@@ -11,11 +11,23 @@
     @apply text-3xl transition-all duration-300 hover:text-[#777] md:text-2xl md:font-bold xl:text-3xl;
   }
 
-  .img-size {
+  .logo-size {
     @apply h-20 w-20 md:h-12 md:w-12 lg:h-14 lg:w-14 xl:h-16 xl:w-16;
   }
 
-  .movement {
-    @apply rounded-md bg-red-400 p-8;
+  .form-operation {
+    @apply flex flex-col justify-center gap-y-1.5 rounded-md bg-red-400 bg-gradient-to-tl p-4 md:flex-col 2xs:px-6 xs:px-12;
+  }
+
+  .input-operation {
+    @apply w-4/6 rounded-md bg-[#ffffff66] px-2 py-0.5 text-sm focus:outline-none;
+  }
+
+  .section-operations {
+    @apply flex flex-col items-center justify-center md:flex-row-reverse;
+  }
+
+  .balance {
+    @apply mb-4 flex flex-col xs:flex-row xs:justify-between;
   }
 }
