@@ -19,11 +19,11 @@
   </head>
   <!--!!!!!!!!!!!!!!dont forget place-items-center -->
   <body
-    class="container grid h-screen max-w-screen-2xl bg-[#f3f3f3] p-4 font-['Poppins'] font-medium text-[#444] md:block md:p-6"
+    class="container h-screen max-w-screen-2xl bg-[#f3f3f3] p-4 font-['Poppins'] font-medium text-[#444] md:p-6"
   >
-    <!-- Mobile header  !!!!!!!!!!!!!!!!change hidden to flex-->
-    <header class="hidden flex-col items-center justify-between text-2xl md:hidden">
-      <img src="/src/img/logo.png" alt="Logo" class="img-size mb-10" />
+    <!-- Mobile login -->
+    <header class="hidden flex-col items-center py-12 text-xl md:hidden">
+      <img src="/src/img/logo.png" alt="Logo" class="logo-size mb-10" />
       <p class="mb-6">Log in to get started</p>
       <form class="flex flex-col justify-center gap-y-2.5 font-light">
         <input type="text" placeholder="user" class="input-login" />
@@ -32,7 +32,7 @@
       </form>
     </header>
 
-    <!-- Desktop header -->
+    <!-- Desktop login -->
     <header class="mb-10 hidden items-center justify-between md:flex">
       <p class="text-lg lg:text-xl xl:text-2xl">Log in to get started</p>
       <img src="/src/img/logo.png" alt="Logo" class="logo-size" />
@@ -43,9 +43,11 @@
       </form>
     </header>
 
-    <main class="mx-auto md:max-w-screen-lg">
+    <main
+      class="grid grid-cols-12 grid-rows-[90px_minmax(300px,_1fr)_400px] md:grid-rows-[100px_minmax(450px,_1fr)]"
+    >
       <!-- BALANCE -->
-      <div class="balance">
+      <div class="col-span-full mb-4 flex flex-col bg-yellow-200 xs:flex-row xs:justify-between">
         <div>
           <p class="text-lg">Current balance</p>
           <p class="text-xs">As of <span>05/03/2037</span></p>
@@ -55,55 +57,13 @@
         </div>
       </div>
 
-      <!-- OPERATION: TRANSFERS -->
-      <section class="section-operations">
-        <div class="flex flex-col gap-y-4">
-          <!-- TRANSFER MONEY -->
-          <form class="form-operation from-[#ffb003] to-[#ffcb03]">
-            <p class="mb-1 text-lg font-semibold">Transfer money</p>
-            <div class="flex items-center justify-between md:flex-col-reverse">
-              <label class="text-center text-xs">Transfer to</label>
-              <input type="text" class="input-operation" />
-            </div>
-            <div class="flex items-center justify-between">
-              <label class="text-center text-xs">Amount</label>
-              <input type="number" class="input-operation" />
-            </div>
-            <div class="text-right text-sm">
-              <button class="w-1/5 rounded-md bg-white py-0.5">&rarr;</button>
-            </div>
-          </form>
-
-          <!-- REQUEST LOAN -->
-          <form class="form-operation from-[#9be15d] to-[#39b385]">
-            <p class="mb-1 text-lg font-semibold">Request loan</p>
-            <div class="flex items-center justify-between">
-              <label class="text-center text-xs">Amount</label>
-              <input type="number" class="input-operation" />
-            </div>
-            <div class="text-right text-sm">
-              <button class="w-1/5 rounded-md bg-white py-0.5">&rarr;</button>
-            </div>
-          </form>
-
-          <!-- CLOSE ACCONUT -->
-          <form class="form-operation from-[#e52a5a] to-[#ff585f]">
-            <p class="mb-1 text-lg font-semibold">Close account</p>
-            <div class="flex items-center justify-between md:flex-col-reverse">
-              <label class="text-center text-xs">Confirm user</label>
-              <input type="text" class="input-operation" />
-            </div>
-            <div class="flex items-center justify-between">
-              <label class="text-center text-xs">Confirm PIN</label>
-              <input type="number" class="input-operation" />
-            </div>
-            <div class="text-right text-sm">
-              <button class="w-1/5 rounded-md bg-white py-0.5">&rarr;</button>
-            </div>
-          </form>
-        </div>
-        <p>detail</p>
+      <!-- OPERATIONS -->
+      <section class="col-span-full row-start-2 row-end-3 bg-blue-200 md:col-start-8 md:col-end-13">
+        operation
       </section>
+
+      <!-- MOVEMENTS -->
+      <section class="col-span-full bg-pink-200 md:col-start-1 md:col-end-8">movement</section>
     </main>
   </body>
 </html>

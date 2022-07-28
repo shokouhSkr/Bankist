@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @layer components {
+  /* LOGIN */
   .input-login {
     @apply w-36 rounded-full border border-[#fff] py-1.5 text-center text-base font-normal focus:border-[#ccc] focus:outline-none md:w-[90px] md:text-sm lg:w-[110px] lg:text-base xl:w-[130px] xl:text-lg;
   }
@@ -15,19 +16,18 @@
     @apply h-20 w-20 md:h-12 md:w-12 lg:h-14 lg:w-14 xl:h-16 xl:w-16;
   }
 
-  .form-operation {
+  /* BALANCE */
+
+  /* OPERATION */
+  .box-operation {
     @apply flex flex-col justify-center gap-y-1.5 rounded-md bg-red-400 bg-gradient-to-tl p-4 md:flex-col 2xs:px-6 xs:px-12;
+  }
+
+  .section-operations {
+    @apply flex flex-col items-center justify-center md:flex-row-reverse md:justify-between;
   }
 
   .input-operation {
     @apply w-4/6 rounded-md bg-[#ffffff66] px-2 py-0.5 text-sm focus:outline-none;
-  }
-
-  .section-operations {
-    @apply flex flex-col items-center justify-center md:flex-row-reverse;
-  }
-
-  .balance {
-    @apply mb-4 flex flex-col xs:flex-row xs:justify-between;
   }
 }
