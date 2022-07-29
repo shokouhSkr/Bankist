@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
 
@@ -19,7 +19,7 @@
   </head>
   <!--!!!!!!!!!!!!!!dont forget place-items-center -->
   <body
-    class="container h-screen max-w-screen-2xl bg-[#f3f3f3] p-4 font-['Poppins'] font-medium text-[#444] md:p-6"
+    class="container h-screen max-w-screen-2xl bg-[#f3f3f3] p-4 font-['Poppins'] font-medium text-[#444] md:p-6 2xs:p-6 xs:p-8"
   >
     <!-- Mobile login -->
     <header class="hidden flex-col items-center py-12 text-xl md:hidden">
@@ -33,7 +33,7 @@
     </header>
 
     <!-- Desktop login -->
-    <header class="mb-10 hidden items-center justify-between md:flex">
+    <header class="mb-6 hidden items-center justify-between md:flex">
       <p class="text-lg lg:text-xl xl:text-2xl">Log in to get started</p>
       <img src="/src/img/logo.png" alt="Logo" class="logo-size" />
       <form class="flex items-center gap-x-2 font-light lg:gap-x-2.5">
@@ -44,10 +44,10 @@
     </header>
 
     <main
-      class="grid grid-cols-12 grid-rows-[90px_minmax(300px,_1fr)_400px] md:grid-rows-[100px_minmax(450px,_1fr)]"
+      class="grid grid-cols-12 grid-rows-[90px_minmax(300px,_1fr)_400px_50px] gap-2 md:container md:max-w-5xl md:grid-rows-[100px_minmax(410px,_425px)_60px]"
     >
       <!-- BALANCE -->
-      <div class="col-span-full mb-4 flex flex-col bg-yellow-200 xs:flex-row xs:justify-between">
+      <div class="col-span-full mb-2 flex flex-col bg-yellow-200 xs:flex-row xs:justify-between">
         <div>
           <p class="text-lg">Current balance</p>
           <p class="text-xs">As of <span>05/03/2037</span></p>
@@ -58,12 +58,65 @@
       </div>
 
       <!-- OPERATIONS -->
-      <section class="col-span-full row-start-2 row-end-3 bg-blue-200 md:col-start-8 md:col-end-13">
-        operation
+      <section
+        class="col-span-full row-start-2 row-end-3 mb-2 flex flex-col gap-y-3 bg-blue-200 md:col-start-8 md:col-end-13"
+      >
+        <!-- OPERATION: TRANSFER -->
+        <div
+          class="rounded-lg bg-gradient-to-tl from-[#ffb003] to-[#ffcb03] px-6 py-4 md:py-8 xs:px-8"
+        >
+          <h4 class="mb-3 font-semibold">Transfer money</h4>
+          <form class="grid grid-cols-10 grid-rows-2 gap-x-2">
+            <input
+              type="text"
+              class="col-span-4 mb-1 rounded-md bg-[#ffffff66] py-0.5 px-1 text-sm transition-all duration-300 focus:bg-[#ffffff99] focus:outline-none"
+            />
+            <input
+              type="number"
+              class="col-span-4 mb-1 rounded-md bg-[#ffffff66] py-0.5 px-1 text-sm transition-all duration-300 focus:bg-[#ffffff99] focus:outline-none"
+            />
+            <label class="col-span-4 row-start-2 text-center text-xs">Transfer to</label>
+            <label class="col-span-4 row-start-2 text-center text-xs">Amount</label>
+            <button class="col-span-2 mb-1 rounded-md bg-white">&rarr;</button>
+          </form>
+        </div>
+
+        <!-- OPERATION: LOAN -->
+        <div class="rounded-lg bg-gradient-to-tl from-[#39b385] to-[#9be15d] px-6 py-4">
+          <h4 class="mb-3 font-semibold">Request loan</h4>
+          <form class="grid grid-cols-10 grid-rows-2 gap-x-2">
+            <input
+              type="number"
+              class="col-span-4 mb-1 rounded-md bg-[#ffffff66] py-0.5 px-1 text-sm transition-all duration-300 focus:bg-[#ffffff99] focus:outline-none"
+            />
+            <label class="col-span-4 row-start-2 text-center text-xs">Amount</label>
+            <button class="col-span-2 mb-1 rounded-md bg-white">&rarr;</button>
+          </form>
+        </div>
+
+        <!-- OPERATION: CLOSE -->
+        <div class="rounded-lg bg-gradient-to-tl from-[#e52a5a] to-[#ff585f] px-6 py-4">
+          <h4 class="mb-3 font-semibold">Close accont</h4>
+          <form class="grid grid-cols-10 grid-rows-2 gap-x-2">
+            <input
+              type="text"
+              class="col-span-4 mb-1 rounded-md bg-[#ffffff66] py-0.5 px-1 text-sm transition-all duration-300 focus:bg-[#ffffff99] focus:outline-none"
+            />
+            <input
+              type="number"
+              class="col-span-4 mb-1 rounded-md bg-[#ffffff66] py-0.5 px-1 text-sm transition-all duration-300 focus:bg-[#ffffff99] focus:outline-none"
+            />
+            <label class="col-span-4 row-start-2 text-center text-xs">Confirm user</label>
+            <label class="col-span-4 row-start-2 text-center text-xs">Confirm PIN</label>
+            <button class="col-span-2 mb-1 rounded-md bg-white">&rarr;</button>
+          </form>
+        </div>
       </section>
 
-      <!-- MOVEMENTS -->
-      <section class="col-span-full bg-pink-200 md:col-start-1 md:col-end-8">movement</section>
+      <!-- SUMMERY -->
+      <section
+        class="col-span-full flex items-center justify-between bg-green-200 text-xs"
+      ></section>
     </main>
   </body>
 </html>
