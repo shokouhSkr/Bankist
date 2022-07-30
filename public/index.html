@@ -22,13 +22,16 @@
     class="container h-screen max-w-screen-2xl bg-[#f3f3f3] p-4 font-['Poppins'] font-medium text-[#444] md:p-6 2xs:p-6 xs:p-8"
   >
     <!-- Mobile login -->
-    <header class="hidden flex-col items-center py-12 text-xl md:hidden">
-      <img src="/src/img/logo.png" alt="Logo" class="logo-size mb-10" />
-      <p class="mb-6">Log in to get started</p>
-      <form class="flex flex-col justify-center gap-y-2.5 font-light">
-        <input type="text" placeholder="user" class="input-login" />
-        <input type="password" placeholder="PIN" maxlength="4" class="input-login" />
-        <button class="login-btn">&rarr;</button>
+    <header class="mb-6 items-center justify-between md:hidden">
+      <form class="flex items-center justify-between gap-x-2 font-light">
+        <div>
+          <img src="/src/img/logo.png" alt="Logo" class="h-8 w-8" />
+        </div>
+        <div class="flex gap-x-2">
+          <input type="text" placeholder="user" class="input-login" />
+          <input type="password" placeholder="PIN" maxlength="4" class="input-login" />
+          <button class="login-btn">&rarr;</button>
+        </div>
       </form>
     </header>
 
@@ -44,13 +47,15 @@
     </header>
 
     <main
-      class="grid grid-cols-12 grid-rows-[90px_minmax(300px,_1fr)_400px_50px] gap-2 md:container md:max-w-5xl md:grid-rows-[100px_minmax(410px,_425px)_60px]"
+      class="grid grid-cols-12 grid-rows-[90px_minmax(300px,_1fr)_400px_50px] gap-2 md:container md:max-w-5xl md:grid-rows-[100px_minmax(410px,_425px)_60px] md:gap-6"
     >
       <!-- BALANCE -->
-      <div class="col-span-full mb-2 flex flex-col bg-yellow-200 xs:flex-row xs:justify-between">
+      <div class="col-span-full mb-2 flex flex-col xs:flex-row xs:items-center xs:justify-between">
         <div>
           <p class="text-lg">Current balance</p>
-          <p class="text-xs">As of <span>05/03/2037</span></p>
+          <div class="text-[#888]">
+            <p class="text-xs">As of <span>05/03/2037</span></p>
+          </div>
         </div>
         <div>
           <p class="text-right text-2xl">250000€</p>
@@ -59,12 +64,10 @@
 
       <!-- OPERATIONS -->
       <section
-        class="col-span-full row-start-2 row-end-3 mb-2 flex flex-col gap-y-3 bg-blue-200 md:col-start-8 md:col-end-13"
+        class="col-span-full row-start-2 row-end-3 mb-2 flex flex-col gap-y-3 bg-blue-200 md:col-start-8 md:col-end-13 md:gap-y-6"
       >
         <!-- OPERATION: TRANSFER -->
-        <div
-          class="rounded-lg bg-gradient-to-tl from-[#ffb003] to-[#ffcb03] px-6 py-4 md:py-8 xs:px-8"
-        >
+        <div class="rounded-lg bg-gradient-to-tl from-[#ffb003] to-[#ffcb03] px-6 py-4 xs:px-8">
           <h4 class="mb-3 font-semibold">Transfer money</h4>
           <form class="grid grid-cols-10 grid-rows-2 gap-x-2">
             <input
@@ -115,39 +118,12 @@
 
       <!-- MOVEMENTS -->
       <section
-        class="col-span-full overflow-scroll rounded-lg bg-white px-6 py-4 md:col-start-1 md:col-end-8"
-      >
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi possimus similique
-        doloremque numquam repellat, quaerat eius voluptas natus asperiores corrupti praesentium ut
-        excepturi, perspiciatis unde consectetur. Dolore provident velit libero? Porro placeat
-        inventore illo perferendis repellat aliquid eaque non doloribus sit rerum rem atque nam,
-        officiis ab possimus blanditiis iure facilis quisquam sint molestiae enim, magnam sequi
-        vitae! Sed, doloremque. Quaerat temporibus eius modi. Voluptas soluta distinctio ipsum,
-        tempora a harum neque! Voluptate totam veniam laboriosam sunt, deserunt eveniet ipsum eos
-        quae accusamus odit, dolor dolore cum quod culpa suscipit? Enim eveniet placeat porro
-        tenetur, officiis minus nobis repudiandae nam, fugit iste quasi architecto ut aperiam ad
-        ratione animi aut debitis, sed et amet perferendis distinctio? Nobis quos dolores molestiae.
-        Aspernatur, unde? Dolorem nihil aut soluta at eveniet dolores consequatur quia quos deserunt
-        mollitia earum sint, aperiam facilis! Impedit suscipit ipsam harum rem reiciendis
-        repudiandae architecto tenetur libero voluptates veritatis! Repudiandae aperiam vitae
-        consectetur repellat quam ea consequatur quia, corporis iusto magnam, reiciendis adipisci
-        accusantium ex sapiente minus sit, nostrum quis. Velit in eum placeat explicabo quod?
-        Repudiandae, necessitatibus saepe. Corporis, eaque nisi mollitia, repellendus consequatur
-        optio impedit ullam iure eveniet in, praesentium quidem maiores. Porro modi nemo, odio totam
-        ab iure non quo temporibus repellat ipsa eligendi, commodi aliquid. Explicabo ut dolorum
-        nostrum vitae repudiandae, alias ab quae iusto, quas placeat quos tempora laborum? Corporis
-        iusto tenetur nam amet similique deleniti aspernatur fugit fuga ab, id molestias magni
-        labore. Perferendis voluptatem est labore praesentium modi eligendi in doloribus facilis
-        eveniet placeat, alias laboriosam. Ullam aperiam, dicta laboriosam nemo aut, numquam dolores
-        quia vel, enim in mollitia iste natus animi? Voluptate voluptatibus eius consequuntur
-        temporibus quod doloremque expedita sit, quo porro unde dolore excepturi qui cum sapiente
-        iste illum facilis? Fugit dignissimos assumenda nesciunt voluptate aspernatur at est,
-        dolorem nihil.
-      </section>
+        class="col-span-full overflow-scroll rounded-lg bg-white md:col-start-1 md:col-end-8"
+      ></section>
 
       <!-- SUMMERY -->
       <section
-        class="col-span-full flex items-center justify-between bg-green-200 text-xs"
+        class="col-span-full flex items-center justify-between bg-green-200 text-2xs md:col-span-7"
       ></section>
     </main>
   </body>
