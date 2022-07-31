@@ -62,7 +62,20 @@ const displayMovements = function (movements) {
     containerMovements.insertAdjacentHTML("afterbegin", html);
   });
 };
-
 displayMovements(account1.movements);
+
+const creatUserNames = function (accs) {
+  accs.forEach(function (acc) {
+    // add username property to each account object
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(" ")
+      .map((name) => name[0])
+      .join("");
+  });
+
+  // console.log(accs);
+};
+creatUserNames(accounts);
 ///////////////////////////////////////
 // Event handlers

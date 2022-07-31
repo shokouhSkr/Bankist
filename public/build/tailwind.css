@@ -936,6 +936,10 @@ video {
   --tw-text-opacity: 1;
   color: rgb(136 136 136 / var(--tw-text-opacity));
 }
+.text-\[\#666\] {
+  --tw-text-opacity: 1;
+  color: rgb(102 102 102 / var(--tw-text-opacity));
+}
 .text-\[\#66c873\] {
   --tw-text-opacity: 1;
   color: rgb(102 200 115 / var(--tw-text-opacity));
@@ -943,10 +947,6 @@ video {
 .text-\[\#f5465d\] {
   --tw-text-opacity: 1;
   color: rgb(245 70 93 / var(--tw-text-opacity));
-}
-.text-\[\#666\] {
-  --tw-text-opacity: 1;
-  color: rgb(102 102 102 / var(--tw-text-opacity));
 }
 .opacity-100 {
   opacity: 1;
