@@ -30,4 +30,21 @@
   .input-operation {
     @apply w-4/6 rounded-md bg-[#ffffff66] px-2 py-0.5 text-sm focus:outline-none;
   }
+
+  /* MOVEMENTS */
+  .movements {
+    @apply col-span-full overflow-scroll rounded-lg bg-white uppercase md:col-start-1 md:col-end-8;
+  }
+
+  .movement-row {
+    @apply flex justify-between border-b-[1px] border-[#eee] p-4 md:px-6 md:py-4;
+  }
+
+  .details {
+    @apply flex items-center justify-between gap-x-2 text-xs;
+  }
+
+  .type {
+    @apply rounded-full bg-gradient-to-tl from-[#39b385] to-[#9be15d] px-2 py-0.5 text-white;
+  }
 }
