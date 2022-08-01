@@ -34,6 +34,7 @@ const accounts = [account1, account2, account3, account4];
 /////////////////////////////////////////////////
 // Elements
 const containerMovements = document.querySelector(".movements");
+const labelBalance = document.querySelector(".label-balance");
 
 /////////////////////////////////////////////////
 // Functions
@@ -64,6 +65,12 @@ const displayMovements = function (movements) {
 };
 displayMovements(account1.movements);
 
+const displayCalcBalance = function (movements) {
+  const balance = movements.reduce((acc, mov) => acc + mov, 0);
+  labelBalance.textContent = `${balance} €`;
+};
+displayCalcBalance(account1.movements);
+
 const creatUserNames = function (accs) {
   accs.forEach(function (acc) {
     // add username property to each account object
@@ -77,5 +84,6 @@ const creatUserNames = function (accs) {
   // console.log(accs);
 };
 creatUserNames(accounts);
+
 ///////////////////////////////////////
 // Event handlers

@@ -17,6 +17,9 @@
   }
 
   /* BALANCE */
+  .label-balance {
+    @apply text-right text-2xl;
+  }
 
   /* OPERATION */
   .box-operation {

@@ -657,6 +657,11 @@ video {
   }
 }
 /* BALANCE */
+.label-balance {
+  text-align: right;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
 /* OPERATION */
 /* MOVEMENTS */
 .movements {
@@ -890,9 +895,6 @@ video {
 .text-center {
   text-align: center;
 }
-.text-right {
-  text-align: right;
-}
 .font-\[\'Poppins\'\] {
   font-family: 'Poppins';
 }
@@ -903,10 +905,6 @@ video {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
-}
-.text-2xl {
-  font-size: 1.5rem;
-  line-height: 2rem;
 }
 .text-sm {
   font-size: 0.875rem;
