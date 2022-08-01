@@ -50,4 +50,17 @@
   .type {
     @apply rounded-full bg-gradient-to-tl from-[#39b385] to-[#9be15d] px-2 py-0.5 text-white;
   }
+
+  /* SUMMARY */
+  .income {
+    @apply ml-0.5 text-base text-[#66c873];
+  }
+
+  .outcome {
+    @apply ml-0.5 text-base text-[#f5465d];
+  }
+
+  .interest {
+    @apply ml-0.5 text-base text-[#66c873];
+  }
 }

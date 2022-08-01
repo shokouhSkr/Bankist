@@ -34,7 +34,11 @@ const accounts = [account1, account2, account3, account4];
 /////////////////////////////////////////////////
 // Elements
 const containerMovements = document.querySelector(".movements");
+
 const labelBalance = document.querySelector(".label-balance");
+const labelSumIn = document.querySelector(".income");
+const labelSumOut = document.querySelector(".outcome");
+const labelInterest = document.querySelector(".interest");
 
 /////////////////////////////////////////////////
 // Functions
@@ -70,6 +74,21 @@ const displayCalcBalance = function (movements) {
   labelBalance.textContent = `${balance} €`;
 };
 displayCalcBalance(account1.movements);
+
+const displayCalcSummary = function (movements) {
+  const income = movements.filter((mov) => mov > 0).reduce((acc, mov) => acc + mov, 0);
+  const outcome = movements.filter((mov) => mov < 0).reduce((acc, mov) => acc + mov, 0);
+  const interest = movements
+    .filter((mov) => mov > 0)
+    .map((deposit) => (deposit * 1.2) / 100)
+    .filter((int) => int > 1)
+    .reduce((acc, int) => acc + int, 0);
+
+  labelSumIn.textContent = `${income} €`;
+  labelSumOut.textContent = `${Math.abs(outcome)} €`;
+  labelInterest.textContent = `${Math.abs(interest)} €`;
+};
+displayCalcSummary(account1.movements);
 
 const creatUserNames = function (accs) {
   accs.forEach(function (acc) {
