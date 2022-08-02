@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer components {
+  .app {
+    @apply grid grid-cols-12 grid-rows-[60px_minmax(300px,_1fr)_400px_50px] gap-2 opacity-0 transition-all duration-1000 md:container md:max-w-5xl md:grid-rows-[60px_minmax(410px,_420px)_40px] md:gap-6;
+  }
+
   /* LOGIN */
   .input-login {
     @apply w-20 rounded-full border border-[#fff] py-0.5 text-center text-sm font-normal focus:border-[#ccc] focus:outline-none md:w-[90px] md:text-sm lg:w-[110px] lg:text-base xl:w-[130px] xl:text-lg;
@@ -16,8 +20,12 @@
     @apply h-20 w-20 md:h-12 md:w-12 lg:h-14 lg:w-14 xl:h-16 xl:w-16;
   }
 
+  .welcome {
+    @apply text-lg lg:text-xl xl:text-2xl;
+  }
+
   /* BALANCE */
-  .label-balance {
+  .balance {
     @apply text-right text-2xl;
   }
 
@@ -32,6 +40,18 @@
 
   .input-operation {
     @apply w-4/6 rounded-md bg-[#ffffff66] px-2 py-0.5 text-sm focus:outline-none;
+  }
+
+  .transfer-to {
+    @apply col-span-4 mb-1 rounded-md bg-[#ffffff66] py-0.5 px-1 text-sm focus:bg-[#ffffff99] focus:outline-none;
+  }
+
+  .amount {
+    @apply col-span-4 mb-1 rounded-md bg-[#ffffff66] py-0.5 px-1 text-sm focus:bg-[#ffffff99] focus:outline-none;
+  }
+
+  .btn-transfer {
+    @apply col-span-2 mb-1 rounded-md bg-white;
   }
 
   /* MOVEMENTS */
