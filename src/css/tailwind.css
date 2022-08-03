@@ -50,7 +50,15 @@
     @apply col-span-4 mb-1 rounded-md bg-[#ffffff66] py-0.5 px-1 text-sm focus:bg-[#ffffff99] focus:outline-none;
   }
 
+  .loan {
+    @apply col-span-4 mb-1 rounded-md bg-[#ffffff66] py-0.5 px-1 text-sm transition-all duration-300 focus:bg-[#ffffff99] focus:outline-none;
+  }
+
   .btn-transfer {
+    @apply col-span-2 mb-1 rounded-md bg-white;
+  }
+
+  .btn-close {
     @apply col-span-2 mb-1 rounded-md bg-white;
   }
 

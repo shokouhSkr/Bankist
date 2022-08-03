@@ -31,7 +31,7 @@ const account4 = {
 
 const accounts = [account1, account2, account3, account4];
 
-/////////////////////////////////////////////////
+/************************************************/
 // Elements
 const containerMovements = document.querySelector(".movements");
 const containerApp = document.querySelector(".app");
@@ -46,11 +46,14 @@ const inputLoginUsername = document.querySelector(".user-input");
 const inputLoginPIN = document.querySelector(".pin-input");
 const inputTransferTo = document.querySelector(".transfer-to");
 const inputTransferAmount = document.querySelector(".amount");
+const inputCloseUsername = document.querySelector(".input-close-username");
+const inputClosePIN = document.querySelector(".input-close-pin");
 
 const btnLogin = document.querySelector(".login-btn");
 const btnTransfer = document.querySelector(".btn-transfer");
+const btnClose = document.querySelector(".btn-close");
 
-/////////////////////////////////////////////////
+/************************************************/
 // Functions
 const displayMovements = function (movements) {
   containerMovements.innerHTML = "";
@@ -117,7 +120,7 @@ const updateUI = function (acc) {
   displayCalcSummary(acc);
 };
 
-///////////////////////////////////////
+/************************************************/
 // Event handlers
 let currentAccount;
 
@@ -163,4 +166,24 @@ btnTransfer.addEventListener("click", function (e) {
     // Update UI
     updateUI(currentAccount);
   }
+});
+
+btnClose.addEventListener("click", function (e) {
+  e.preventDefault();
+
+  if (
+    currentAccount.username === inputCloseUsername.value &&
+    currentAccount.pin === +inputClosePIN.value
+  ) {
+    // console.log("confirmed");
+
+    // Delete account
+    const index = accounts.findIndex((acc) => acc.username === currentAccount.username);
+    accounts.splice(index, 1);
+
+    // Hide UI
+    containerApp.style.opacity = 0;
+  }
+
+  inputCloseUsername.value = inputClosePIN.value = "";
 });
