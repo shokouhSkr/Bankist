@@ -54,13 +54,17 @@ const btnLogin = document.querySelector(".login-btn");
 const btnTransfer = document.querySelector(".btn-transfer");
 const btnClose = document.querySelector(".btn-close");
 const btnLoan = document.querySelector(".btn-loan");
+const btnSort = document.querySelector(".btn-sort");
 
 /************************************************/
 // Functions
-const displayMovements = function (movements) {
+const displayMovements = function (movements, sort = false) {
   containerMovements.innerHTML = "";
 
-  movements.forEach(function (mov, i) {
+  // Sort ascending movements
+  const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
+
+  movs.forEach(function (mov, i) {
     const type = mov > 0 ? "deposit" : "withdrawal";
     const colorType =
       type === "deposit"
@@ -202,4 +206,12 @@ btnLoan.addEventListener("click", function (e) {
   }
 
   inputLoanAmount.value = "";
+});
+
+let sorted = false;
+btnSort.addEventListener("click", function (e) {
+  e.preventDefault();
+
+  displayMovements(currentAccount.movements, !sorted);
+  sorted = !sorted;
 });
