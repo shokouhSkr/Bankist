@@ -48,10 +48,12 @@ const inputTransferTo = document.querySelector(".transfer-to");
 const inputTransferAmount = document.querySelector(".amount");
 const inputCloseUsername = document.querySelector(".input-close-username");
 const inputClosePIN = document.querySelector(".input-close-pin");
+const inputLoanAmount = document.querySelector(".loan");
 
 const btnLogin = document.querySelector(".login-btn");
 const btnTransfer = document.querySelector(".btn-transfer");
 const btnClose = document.querySelector(".btn-close");
+const btnLoan = document.querySelector(".btn-loan");
 
 /************************************************/
 // Functions
@@ -183,7 +185,21 @@ btnClose.addEventListener("click", function (e) {
 
     // Hide UI
     containerApp.style.opacity = 0;
+
+    inputCloseUsername.value = inputClosePIN.value = "";
+  }
+});
+
+btnLoan.addEventListener("click", function (e) {
+  e.preventDefault();
+
+  const amount = +inputLoanAmount.value;
+
+  if (amount > 0 && currentAccount.movements.some((mov) => mov >= 1.1 * amount)) {
+    currentAccount.movements.push(amount);
+
+    updateUI(currentAccount);
   }
 
-  inputCloseUsername.value = inputClosePIN.value = "";
+  inputLoanAmount.value = "";
 });
