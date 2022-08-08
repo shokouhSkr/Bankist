@@ -22,7 +22,7 @@
     @apply flex items-center gap-x-2 font-light lg:gap-x-2.5;
   }
 
-  .input-login {
+  .login-input {
     @apply w-20 rounded-full border border-[#fff] py-0.5 text-center text-sm font-normal focus:border-[#ccc] focus:outline-none md:w-[90px] md:text-sm lg:w-[110px] lg:text-base xl:w-[130px] xl:text-lg;
   }
 
@@ -83,6 +83,10 @@
 
   .movement-row {
     @apply flex justify-between border-b-[1px] border-[#eee] p-4 md:px-6 md:py-4;
+  }
+
+  .movement-date {
+    @apply text-xs text-[#888];
   }
 
   .details {

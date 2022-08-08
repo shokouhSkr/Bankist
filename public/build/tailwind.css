@@ -692,7 +692,7 @@ video {
          column-gap: 0.625rem;
   }
 }
-.input-login {
+.login-input {
   width: 5rem;
   border-radius: 9999px;
   border-width: 1px;
@@ -705,7 +705,7 @@ video {
   line-height: 1.25rem;
   font-weight: 400;
 }
-.input-login:focus {
+.login-input:focus {
   --tw-border-opacity: 1;
   border-color: rgb(204 204 204 / var(--tw-border-opacity));
   outline: 2px solid transparent;
@@ -713,7 +713,7 @@ video {
 }
 @media (min-width: 768px) {
 
-  .input-login {
+  .login-input {
     width: 90px;
     font-size: 0.875rem;
     line-height: 1.25rem;
@@ -721,7 +721,7 @@ video {
 }
 @media (min-width: 1024px) {
 
-  .input-login {
+  .login-input {
     width: 110px;
     font-size: 1rem;
     line-height: 1.5rem;
@@ -729,7 +729,7 @@ video {
 }
 @media (min-width: 1280px) {
 
-  .input-login {
+  .login-input {
     width: 130px;
     font-size: 1.125rem;
     line-height: 1.75rem;
@@ -919,6 +919,12 @@ video {
     padding-top: 1rem;
     padding-bottom: 1rem;
   }
+}
+.movement-date {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  --tw-text-opacity: 1;
+  color: rgb(136 136 136 / var(--tw-text-opacity));
 }
 .details {
   display: flex;
@@ -1111,6 +1117,10 @@ video {
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
+}
+.text-2xs {
+  font-size: 10px;
+  line-height: 12px;
 }
 .font-semibold {
   font-weight: 600;
