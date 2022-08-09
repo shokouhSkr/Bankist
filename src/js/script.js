@@ -18,7 +18,7 @@ const account1 = {
     "2022-08-08T10:51:36.790Z",
   ],
   currency: "EUR",
-  locale: "en-US",
+  locale: "pt-PT",
 };
 
 const account2 = {
@@ -37,7 +37,7 @@ const account2 = {
     "2022-06-25T18:49:59.371Z",
     "2022-07-26T12:01:20.894Z",
   ],
-  currency: "USD",
+  currency: "IRR",
   locale: "fa-IR",
 };
 
@@ -85,6 +85,13 @@ const creatUserNames = function (accs) {
 };
 creatUserNames(accounts);
 
+const formatCurrency = function (value, locale, currency) {
+  return new Intl.NumberFormat(locale, {
+    style: "currency",
+    currency: currency,
+  }).format(value);
+};
+
 const formatMovementDate = function (date, locale) {
   const calcDaysPassed = (date1, date2) =>
     Math.round(Math.abs(date2 - date1) / (1000 * 60 * 60 * 24));
@@ -116,6 +123,9 @@ const displayMovements = function (acc, sort = false) {
     const date = new Date(acc.movementsDates[i]);
     const displayDate = formatMovementDate(date, acc.locale);
 
+    // Format currency
+    const formattedMov = formatCurrency(mov, acc.locale, acc.currency);
+
     const html = `
         <div class="movement-row">
           <div class="details">
@@ -123,7 +133,7 @@ const displayMovements = function (acc, sort = false) {
             <span class="text-2xs text-[#666]">${displayDate}</span>
           </div>
           <div>
-            <span>${mov.toFixed(2)} €</span>
+            <span>${formattedMov}</span>
           </div>
         </div>
     `;
@@ -134,7 +144,7 @@ const displayMovements = function (acc, sort = false) {
 
 const displayCalcBalance = function (acc) {
   acc.balance = acc.movements.reduce((acc, mov) => acc + mov, 0);
-  labelBalance.textContent = `${acc.balance.toFixed(2)} €`;
+  labelBalance.textContent = formatCurrency(acc.balance, acc.locale, acc.currency);
 };
 
 const displayCalcSummary = function (acc) {
@@ -146,9 +156,9 @@ const displayCalcSummary = function (acc) {
     .filter((int) => int > 1)
     .reduce((acc, int) => acc + int, 0);
 
-  labelSumIn.textContent = `${income.toFixed(2)} €`;
-  labelSumOut.textContent = `${Math.abs(outcome.toFixed(2))} €`;
-  labelInterest.textContent = `${Math.abs(interest.toFixed(2))} €`;
+  labelSumIn.textContent = formatCurrency(income, acc.locale, acc.currency);
+  labelSumOut.textContent = formatCurrency(Math.abs(outcome), acc.locale, acc.currency);
+  labelInterest.textContent = formatCurrency(interest, acc.locale, acc.currency);
 };
 
 const updateUI = function (acc) {
