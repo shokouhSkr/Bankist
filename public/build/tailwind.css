@@ -920,12 +920,6 @@ video {
     padding-bottom: 1rem;
   }
 }
-.movement-date {
-  font-size: 0.75rem;
-  line-height: 1rem;
-  --tw-text-opacity: 1;
-  color: rgb(136 136 136 / var(--tw-text-opacity));
-}
 .details {
   display: flex;
   align-items: center;

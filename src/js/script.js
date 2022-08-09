@@ -13,9 +13,9 @@ const account1 = {
     "2021-01-28T09:15:04.904Z",
     "2022-04-01T10:17:24.185Z",
     "2022-05-08T14:11:59.604Z",
-    "2022-07-26T17:01:17.194Z",
-    "2022-07-28T23:36:17.929Z",
-    "2022-08-01T10:51:36.790Z",
+    "2022-08-03T17:01:17.194Z",
+    "2022-08-07T23:36:17.929Z",
+    "2022-08-08T10:51:36.790Z",
   ],
   currency: "EUR",
   locale: "pt-PT", // de-DE
@@ -71,6 +71,24 @@ const btnSort = document.querySelector(".btn-sort");
 
 /************************************************/
 // Functions
+const formatMovementDate = function (date) {
+  const calcDaysPassed = (date1, date2) =>
+    Math.round(Math.abs(date2 - date1) / (1000 * 60 * 60 * 24));
+
+  const daysPassed = calcDaysPassed(new Date(), date);
+  // console.log(daysPassed);
+
+  if (daysPassed === 0) return "Today";
+  if (daysPassed === 1) return "Yesterday";
+  if (daysPassed <= 7) return `${daysPassed} days ago`;
+  else {
+    const year = date.getFullYear();
+    const month = `${date.getMonth() + 1}`.padStart(2, 0);
+    const day = `${date.getDate()}`.padStart(2, 0);
+    return `${day}/${month}/${year}`;
+  }
+};
+
 const creatUserNames = function (accs) {
   accs.forEach(function (acc) {
     // add username property to each account object
@@ -100,10 +118,7 @@ const displayMovements = function (acc, sort = false) {
 
     // Create current date
     const date = new Date(acc.movementsDates[i]);
-    const year = date.getFullYear();
-    const month = `${date.getMonth() + 1}`.padStart(2, 0);
-    const day = `${date.getDate()}`.padStart(2, 0);
-    const displayDate = `${day}/${month}/${year}`;
+    const displayDate = formatMovementDate(date);
 
     const html = `
         <div class="movement-row">
