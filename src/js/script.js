@@ -54,6 +54,7 @@ const labelSumIn = document.querySelector(".income");
 const labelSumOut = document.querySelector(".outcome");
 const labelInterest = document.querySelector(".interest");
 const labelWelcome = document.querySelector(".welcome");
+const labelTimer = document.querySelector(".timer");
 
 const inputLoginUsername = document.querySelector(".user-input");
 const inputLoginPIN = document.querySelector(".pin-input");
@@ -161,6 +162,34 @@ const displayCalcSummary = function (acc) {
   labelInterest.textContent = formatCurrency(interest, acc.locale, acc.currency);
 };
 
+const startLogOutTimer = function () {
+  const tick = function () {
+    const min = String(Math.trunc(time / 60)).padStart(2, 0);
+    const sec = String(time % 60).padStart(2, 0);
+
+    // Update timer in UI
+    labelTimer.textContent = `${min}:${sec}`;
+
+    // When 0 seconds, stop timer and log out user
+    if (time === 0) {
+      clearInterval(timer);
+      labelWelcome.textContent = "Log in to get started";
+      containerApp.style.opacity = 0;
+    }
+
+    // Decrease 1s
+    time--;
+  };
+
+  // Set time to 5 minutes
+  let time = 300;
+
+  // Call the timer every second
+  tick();
+  const timer = setInterval(tick, 1000);
+  return timer;
+};
+
 const updateUI = function (acc) {
   displayMovements(acc);
   displayCalcBalance(acc);
@@ -169,12 +198,12 @@ const updateUI = function (acc) {
 
 /************************************************/
 // Event handlers
-let currentAccount;
+let currentAccount, timer;
 
 // FAKE ALWAYS LOGIN !!!!!!!!!!!!!!!!!!!!!!!!!!
-currentAccount = account1;
-updateUI(currentAccount);
-containerApp.style.opacity = 100;
+// currentAccount = account1;
+// updateUI(currentAccount);
+// containerApp.style.opacity = 100;
 
 btnLogin.addEventListener("click", function (e) {
   e.preventDefault();
@@ -185,10 +214,6 @@ btnLogin.addEventListener("click", function (e) {
   // console.log(currentAccount);
 
   if (currentAccount?.pin === +inputLoginPIN.value) {
-    // display UI and welcome message
-    labelWelcome.textContent = `Welcome back, ${currentAccount.owner.split(" ")[0]}!`;
-    containerApp.style.opacity = 100;
-
     // Create current data
     const now = new Date();
     const options = {
@@ -200,11 +225,25 @@ btnLogin.addEventListener("click", function (e) {
       year: "numeric",
     };
 
+    // display UI and welcome message
+    console.log(now.getHours());
+    if (now.getHours() <= 12)
+      labelWelcome.textContent = `Good Day, ${currentAccount.owner.split(" ")[0]}!`;
+    else labelWelcome.textContent = `Good night, ${currentAccount.owner.split(" ")[0]}!`;
+
+    containerApp.style.opacity = 100;
+
     labelDate.textContent = new Intl.DateTimeFormat(currentAccount.locale, options).format(now);
 
     // clear input fields
     inputLoginUsername.value = inputLoginPIN.value = "";
     inputLoginPIN.blur();
+
+    // Reset timer
+    if (timer) clearInterval(timer);
+
+    // Start Timer
+    timer = startLogOutTimer();
 
     updateUI(currentAccount);
   }
@@ -234,8 +273,12 @@ btnTransfer.addEventListener("click", function (e) {
     currentAccount.movementsDates.push(new Date().toISOString());
     receiverAcc.movementsDates.push(new Date().toISOString());
 
+    // Reset timer
+    if (timer) clearInterval(timer);
+    timer = startLogOutTimer();
+
     // Update UI
-    updateUI(currentAccount);
+    setTimeout(() => updateUI(currentAccount), 2000);
   }
 });
 
@@ -252,10 +295,10 @@ btnClose.addEventListener("click", function (e) {
     const index = accounts.findIndex((acc) => acc.username === currentAccount.username);
     accounts.splice(index, 1);
 
+    inputCloseUsername.value = inputClosePIN.value = "";
+
     // Hide UI
     containerApp.style.opacity = 0;
-
-    inputCloseUsername.value = inputClosePIN.value = "";
   }
 });
 
@@ -270,7 +313,11 @@ btnLoan.addEventListener("click", function (e) {
     // Add loan date
     currentAccount.movementsDates.push(new Date().toISOString());
 
-    updateUI(currentAccount);
+    // Reset timer
+    if (timer) clearInterval(timer);
+    timer = startLogOutTimer();
+
+    setTimeout(() => updateUI(currentAccount), 2000);
   }
 
   inputLoanAmount.value = "";
