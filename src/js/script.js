@@ -226,10 +226,9 @@ btnLogin.addEventListener("click", function (e) {
     };
 
     // display UI and welcome message
-    console.log(now.getHours());
-    if (now.getHours() <= 12)
-      labelWelcome.textContent = `Good Day, ${currentAccount.owner.split(" ")[0]}!`;
-    else labelWelcome.textContent = `Good night, ${currentAccount.owner.split(" ")[0]}!`;
+    labelWelcome.textContent = `${
+      now.getHours() > 6 && now.getHours() <= 18 ? "Good Day" : "Good Night"
+    }, ${currentAccount.owner.split(" ")[0]}!`;
 
     containerApp.style.opacity = 100;
 
